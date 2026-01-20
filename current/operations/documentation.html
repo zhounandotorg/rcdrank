@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <!-- utf-8 for correct datatablse icon -->
+    <div id="headerMetaContainer"></div>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link href="../styles/bootstrap-latest/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../styles/bootstrap-icons-latest/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- load early libraries -->
+    <script src="../scripts/jquery/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="navbarContainer"></div>
+        
+        
+        <div class="row">
+            <div class="col-2">
+                <div class="card" style="position:fixed;">
+                    <div class="card-header">Contents</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a class="card-link" href="#doc-interface">Interface</a></li>
+                        <li class="list-group-item"><a class="card-link" href="#doc-analyze">Analyze</a></li>
+                        <li class="list-group-item">|--<a class="card-link" href="#doc-preparedata">Prepare data</a></li>
+                        <li class="list-group-item">|--<a class="card-link" href="#doc-setparameters">Set parameters</a></li>
+                        <li class="list-group-item">|--<a class="card-link" href="#doc-runanalysis">Run analysis</a></li>
+                        <li class="list-group-item">|--<a class="card-link" href="#doc-retrieveresults">Retrieve results</a></li>
+                        <li class="list-group-item">|--<a class="card-link" href="#doc-examineoutputs">Examine outputs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-10">
+                <p class="fs-3" id="doc-interface">Interface</p>
+                <p>
+                    The tool interface is organized into a series of panels. As shown in the image below. Panel 1 receives inputs
+                    from the user. Panel 2 and 3 are used for analysis configuration.
+                    Panel 4 provides buttons to submit and reset the analysis.
+                    Panel 5 retrieves history analysis results. Panel 6 shows analysis outputs.
+                </p>
+                <img class="img-fluid" src="../images/doc1.png" />
+
+                <hr />
+
+                <p class="fs-3" id="doc-analyze">Analyze</p>
+
+                <p class="text-info" id="doc-preparedata">Prepare data</p>
+                <p>
+                    The data should be prepared according to its source type.
+                </p>
+                <p>
+                    For a gene list, it can be in either a single-column or double-column format.
+                    The single-column gene list typically consists of a list of gene symbols,
+                    while the double-column gene list includes a second column for ranking metrics.
+                </p>
+                <p>
+                    For expression data, it is represented as a gene expression matrix in plain text format,
+                    usually in a TSV or CSV file.
+                    Please remember to prepare an annotation file that defines the conditions of the samples,
+                    with the sample orders in both files matched.
+                </p>
+                <p>
+                    For the GDC TCGA dataset, we have pre-processed the data for users.
+                    It is ready to use out of the box, with no preparation required.
+                </p>
+
+                <p class="text-info" id="doc-setparameters">Set parameters</p>
+                <p>The content shown in the parameter panels depends on the type of data source. We have tuned the parameters so that they will work smoothly and robustly in most cases. The parameters are also self-intuitive and easy to configure. Where special attention is required, a hint is provided alongside.</p>
+
+                <p class="text-info" id="doc-runanalysis">Run analysis</p>
+                <p>When data are correctly provided and the parameters are properly set, please click the submit button to launch the analysis. If you need to restart the whole analysis, please click the reset button to reset the tool.</p>
+
+                <p class="text-info" id="doc-retrieveresults">Retrive results</p>
+                <p>Analysis results from the past 48 hours can be retrieved using the Retrieve Results panel. All you need to do is enter the file ID of a previous analysis. For newly submitted jobs, results will be retrieved automatically. You only need to manually retrieve results if the automatic process goes wrong.</p>
+
+                <p class="text-info" id="doc-examineoutputs">Examine outputs</p>
+                <p>All results are displayed in the Output panel, as shown in the example below. Panel 1 displays log information related to the analysis. Panel 2 contains the results data table. The buttons in the top-left corner can be used to export the data to an XLSX, CSV, or PDF file. Panel 3 presents a interactive diagram where the priority of RCD can be easily perceived.</p>
+                <img class="img-fluid" src="../images/doc2.png" />
+
+            </div>
+        </div>
+        
+        
+        <div id="footerContainer"></div>
+        
+    </div>
+    
+    <!-- libraries load at a latter time -->
+    <script src="../styles/bootstrap-latest/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- js near the end-->
+    <script src="./base.js"></script>
+</body>
+</html>

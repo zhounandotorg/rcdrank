@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div id="headerMetaContainer"></div>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="styles/bootstrap-latest/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/bootstrap-icons-latest/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- libraries loaded at an earlier time -->
+    <script src="./scripts/jquery/jquery-3.7.1.min.js"></script>
+    <style>
+        /* credit@https://themes.getbootstrap.com/preview/?theme_id=90106 */
+        .waves {
+            position: relative;
+            width: 100%;
+            top: 100px;
+            /*height: 16vh;*/
+            /*margin-bottom: -7px;*/
+            min-height: 100px;
+            max-height: 150px;
+            overflow: hidden;
+        }
+        .moving-waves>use {
+            animation:f 40s cubic-bezier(.55,.5,.45,.5) infinite;
+        }
+        .moving-waves>use:first-child {
+            animation-delay:-2s;
+            animation-duration:11s
+        }
+        .moving-waves>use:nth-child(2) {
+            animation-delay:-4s;
+            animation-duration:13s
+        }
+        .moving-waves>use:nth-child(3) {
+            animation-delay:-3s;
+            animation-duration:15s
+        }
+        .moving-waves>use:nth-child(4) {
+            animation-delay:-4s;
+            animation-duration:20s
+        }
+        .moving-waves>use:nth-child(5) {
+            animation-delay:-4s;
+            animation-duration:25s
+        }
+        .moving-waves>use:nth-child(6) {
+            animation-delay:-3s;
+            animation-duration:30s
+        }
+        @keyframes f {
+            0% {
+                transform:translate3d(-90px,0,0)
+            }
+            to {
+                transform:translate3d(85px,0,0)
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="navbarContainer"></div>
+
+        <div class="row" style="background-image: url('images/home1.jpg'); background-size: cover;">
+            <div class="col text-center px-0" style="padding-top:100px; padding-bottom: 100px; background-image: linear-gradient(310deg, #7928ca, #ff0080); background-size: cover; opacity: .8;">
+                <p class="h1 text-light">Rank RCD modalities</p>
+                <p class="text-light fs-4">Discern priorities of various types of RCD to gain deeper insights into biological outcomes</p>
+                <a href="./operations/analyze.html" class="btn btn-outline-warning btn-lg">Get started</a>
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+                    </defs>
+                    <g class="moving-waves">
+                    <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95"></use>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <div class="row bg-light">
+            <div class="col text-center" style="padding-top:100px; padding-bottom: 100px;">
+                <p class="h2">Overview</p>
+                <div class="text-start">
+                    <p><span class="h3 bi-check2-square"></span>&nbsp;Regulated cell death is an essential biological process for physiological growth and development.</p>
+                    <p><span class="h3 bi-check2-square"></span>&nbsp;RCD modalities are defined by distinctive morphological changes but they can crosstalk through interconnecting, even overlapping, signaling pathways.</p>
+                    <p><span class="h3 bi-check2-square"></span>&nbsp;Multiple RCD forms may be induced simultaneously or successively, affecting different cell types or the same cell type synchronously or sequentially.</p>
+                    <p><span class="h3 bi-check2-square"></span>&nbsp;Different forms of regulated cell death may coexist simultaneously in the same or different cell types, or be activated sequentially even in the same individual.</p>
+                    <p><span class="h3 bi-check2-square"></span>&nbsp;Interventions that target secondary or minor forms, rather than the predominant form of cell death of the disease might still provide benefit.</p>
+                    <p><span class="h3 bi-check2-square"></span>&nbsp;Determining which RCD modalities are most relevant or active within specific biological contexts remains a challenge. </p>
+                </div>
+                <!--a href="#" class="badge rounded-pill text-bg-secondary text-decoration-none">Learn more</a-->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-center" style="padding-top:100px; padding-bottom: 100px;">
+                <p class="h2">Features</p>
+                <div class="row text-center">
+                    <div class="col-4">
+                        <svg class="bi" width="64" height="64" fill="currentColor">
+                            <use xlink:href="./styles/bootstrap-icons-latest/bootstrap-icons.svg#boxes"/>
+                        </svg>
+                        <p class="h3">Task oriented</p>
+                        <p class="text-primary">Rank priorities of RCD.</p>
+                    </div>
+                    <div class="col-4">
+                        <svg class="bi" width="64" height="64" fill="currentColor">
+                            <use xlink:href="./styles/bootstrap-icons-latest/bootstrap-icons.svg#database-add"/>
+                        </svg>
+                        <p class="h3">Multiform data</p>
+                        <p class="text-primary">Accept various input formats.</p>
+                    </div>
+                    <div class="col-4">
+                        <svg class="bi" width="64" height="64" fill="currentColor">
+                            <use xlink:href="./styles/bootstrap-icons-latest/bootstrap-icons.svg#card-text"/>
+                        </svg>
+                        <p class="h3">Detailed Reports</p>
+                        <p class="text-primary">Delivery comprehensive outputs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-center" style="padding-top:100px; padding-bottom: 100px;">
+                <p class="h2">How It Works</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="h3 bi-upload">&nbsp;Step 1: Provide data</p>
+                        <p  class="text-primary">Prepare and upload data in a supported format.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="h3 bi-sliders">&nbsp;Step 2: Set parameters</p>
+                        <p class="text-primary">Choose the appropriate parameters for your analysis.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="h3 bi-play-btn">&nbsp;Step 3: Run analysis</p>
+                        <p class="text-primary">Submit your request to start the analysis.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="h3 bi-cloud-check">&nbsp;Step 4: View Results</p>
+                        <p class="text-primary">Examine and download results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footerContainer"></div>
+
+        <!-- site statistics -->
+        <!--script type="text/javascript" src="https://www.free-counters.org/count/hias"></script><br><a href='https://www.acadoo.de/leistungen/ghostwriter-doktorarbeit/'>Doktorarbeit Coaching</a> <script type='text/javascript' src='https://whomania.com/ctr?id=61ae17a6382a8ee515d2affb6673cf929fe59111'></script-->
+        <!--script id="_wauc0v">var _wau = _wau || []; _wau.push(["map", "09rccf4o03", "c0v", "250", "125", "green", "default-orange"]);</script><script async src="//waust.at/m.js"></script-->
+    </div>
+
+    <!-- libraries load at a latter time -->
+    <!--script src="./scripts/plotly/plotly-2.24.1.min.js"></script-->
+    <script src="styles/bootstrap-latest/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- js near the end-->
+    <script src="./operations/base.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

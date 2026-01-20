@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Nan Zhou">
+    <meta name='description' content='RCD rank'>
+    <meta http-equiv="refresh" content="2; URL=current" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <title>RCDRank</title>
+  </head>
+  <body>
+    <main>
+        <div style="width: 100%; height: 30vh; padding-top: 30vh; padding-bottom: 30vh; text-align: center;">
+            <progress style="width: 40%;"></progress>
+        </div>
+    </main>
+    <footer>
+      <p>&copy;Copyright 2023-<span id="footerYear">0000</span> by RCDRank. All rights reserved.
+        <span><a href="current/" title="www.zhounan.org/rcdrank">Open</a> manually without waiting.</span>
+      </p>
+    </footer>
+    <script>
+        // set footer year
+        function setFooterYear() {
+            var d = new Date();
+            document.getElementById('footerYear').textContent = d.getFullYear();
+        }
+        setFooterYear();
+    </script>
+  </body>
+</html>

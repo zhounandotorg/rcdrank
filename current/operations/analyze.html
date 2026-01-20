@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <!-- utf-8 for correct datatablse icon -->
+    <div id="headerMetaContainer"></div>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link href="../styles/bootstrap-latest/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../styles/bootstrap-icons-latest/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- load early libraries -->
+    <script src="../scripts/jquery/jquery-3.7.1.min.js"></script>
+    <link href="../scripts/DataTables/datatables.min.css" rel="stylesheet" />
+    <script src="../scripts/DataTables/datatables.min.js"></script>
+    <!--script src="../scripts/DataTables/extensions/dataTables.buttons.js"></script>
+    <link href="../scripts/DataTables/extensions/buttons.dataTables.css" rel="stylesheet" />
+    <script src="../scripts/DataTables/extensions/buttons.dataTables.js"></script>
+    <script src="../scripts/DataTables/extensions/buttons.html5.min.js"></script-->
+    <style>
+        .toggle-icon {
+            cursor: pointer;
+            width: 20px;
+            text-align: left;
+        }
+        .hidden-row {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="navbarContainer"></div>
+        
+        
+        <div class="row mb-2">
+            <div class="col">
+                <p class="text-center fs-3">Prioritize RCD modalities</p>
+                <div class="card">
+                    <div class="card-header">Description</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                Single gene set enrichment test method offers limited information. The amalgamation of multiple methods demonstrate superior performance over individual methods in gene set scoring.
+                            </li>
+                            <li>
+                                RCDRank integrates seven ORA and FCS methods via Tippett combination and
+                                 Robust Rank Aggregation to overcome the limitations associated with single-method analysis,
+                                  thus focusing on RCD pathways that demonstrate consistent levels of significance
+                                   across different methods and ascertaining the ranking of RCD madalities.
+                            </li>
+                            <li>
+                                RCDRank supports multiple data types, including
+                                unscored gene lists, genes with ranking metrics, and expression profiles.
+                                Pre-processed TCGA RNA-seq data sets are also available for easy loading and analysis.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <form id="analysisform" class="row" action="#" onsubmit="return false;">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">Input</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <p>Data source</p>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-check form-check-inline">
+                                    <label for="datasource_genelist" class="form-check-label">
+                                        <span class="badge rounded-pill text-bg-primary">Gene list</span>
+                                    </label>
+                                    <input type="radio" class="form-check-input" name="datasource" id="datasource_genelist" value="genelist" checked />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label for="datasource_genelistfile" class="form-check-label">
+                                        <span class="badge rounded-pill text-bg-primary">Gene list file</span>
+                                    </label>
+                                    <input type="radio" class="form-check-input" name="datasource" id="datasource_genelistfile" value="genelisfile" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label for="datasource_expressionfiles" class="form-check-label">
+                                        <span class="badge rounded-pill text-bg-primary">Expression data</span>
+                                    </label>
+                                    <input type="radio" class="form-check-input" name="datasource" id="datasource_expressionfiles" value="expressionfiles" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label for="datasource_tcga" class="form-check-label">
+                                        <span class="badge rounded-pill text-bg-secondary">GDC TCGA</span>
+                                    </label>
+                                    <input type="radio" class="form-check-input" name="datasource" id="datasource_tcga" value="tcga" />
+                                </div>
+                            </div>
+                            <div class="border-top border-primary my-2" id="datasourcecontent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header bg-primary-subtle">Enrichment methods</div>
+                    <div class="card-body">
+                        <div class="alert alert-warning" role="alert">
+                            Please choose &ge; 2 methods.
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="Enrichr" id="enrichenrichr" name="enrichenrichr" disabled checked />
+                            <label class="form-check-label" for="enrichenrichr">Enrichr</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="Hypergeometric" id="enrichHypergeometric" name="enrichHypergeometric" disabled checked />
+                            <label class="form-check-label" for="enrichHypergeometric">Hypergeometric test</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="prerank" id="enrichprerank" name="enrichprerank" disabled />
+                            <label class="form-check-label" for="enrichprerank">GSEA (prerank)</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="GOAT" id="enrichGOAT" name="enrichGOAT" disabled />
+                            <label class="form-check-label" for="enrichGOAT">GOAT</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="GSEA" id="enrichGSEA" name="enrichGSEA" disabled />
+                            <label class="form-check-label" for="enrichGSEA">GSEA</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="ssGSEA" id="enrichssGSEA" name="enrichssGSEA" disabled />
+                            <label class="form-check-label" for="enrichssGSEA">ssGSEA</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="GSVA" id="enrichGSVA" name="enrichGSVA" disabled />
+                            <label class="form-check-label" for="enrichGSVA">GSVA</label>
+                        </div>
+                    </div>
+                </div>
+                <div id="degSettingContainer"></div>
+                <div class="card">
+                    <div class="card-header">Analysis</div>
+                    <div class="card-body">
+                        <div class="alert alert-warning" role="alert">
+                            Please ensure your data is well-prepared and all settings are correctly configured.
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-danger">Reset</button>
+                    </div>
+                    <div class="card-footer">
+                        <p>For a &lt; 100 MB expression data set, usually it will
+                            complete in <span class="text-success">5 mins</span>.
+                            Please be patient to wait for progress update as shown in the
+                            <span class="text-success">Output</span> panel below.
+                        </p>
+                    </div>
+                </div>
+                <div id="submitresponsestatuspanel"></div>
+            </div>
+        </form>
+        
+        
+        <div class="row">
+            <div class="col my-2">
+                <div class="card">
+                    <div class="card-header text-success">Retrieve results</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-auto"><label for="anaidtoretrieve" class="form-label">File ID</label></div>
+                            <div class="col-auto">
+                                <input class="form-control" id="anaidtoretrieve" type="text" placeholder="History file id" size="40" required />
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-outline-primary" type="button" role="button"
+                                    onclick="checkAnalysisProgressManual()">Fetch</button>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                You can enter the <span class="text-primary">file ID</span> of a history analysis to
+                                fetch its results, which will be kept on the server for 48 hours.
+                            </li>
+                            <li>When a new analysis has just been submitted, the text box above will be filled with its file ID
+                                and the results will be retrieved automatically.
+                                <span class="text-primary">You can also manually fetch the results if you
+                                think there is something wrong in the automatic way</span>.
+                            </li>
+                            <li><span class="text-danger">
+                                <span class="fs-4">DO NOT</span>
+                                fetch manually when automatic retrieval of a running job is working.</span>
+                            </li>
+                        </ul>   
+                    </div>
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col my-2">
+                <div class="card">
+                    <div class="card-header text-success">Output</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col" id="analysisresultcontainer">Results will be shown here</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div id="footerContainer"></div>
+        
+    </div>
+    
+    <!-- libraries load at a latter time -->
+    <script src="../scripts/plotly/plotly-3.0.1.min.js" charset="utf-8"></script>
+    <script src="../styles/bootstrap-latest/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- js near the end-->
+    <script src="./base.js"></script>
+    <script src="./analyze.js" defer></script>
+</body>
+</html>
